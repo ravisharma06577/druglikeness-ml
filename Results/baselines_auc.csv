@@ -1,0 +1,6 @@
+method,metric,value,ci_low,ci_high
+"Random forest, descriptors + fingerprints (primary model)",ROC-AUC,0.8311436891918723,0.8062987233783538,0.8549940682424565
+QED score,ROC-AUC,0.5066971672513072,0.471294779406657,0.5435258138504483
+Logistic regression on molecular weight and logP only,ROC-AUC,0.6158705076444503,0.579172538480788,0.6489296135555869
+First-report year alone (era shortcut),ROC-AUC,0.6754852240386524,0.6439941496556237,0.7090321046600502
+Nearest-neighbour similarity (to training approved minus to training other),ROC-AUC,0.7833513965186313,0.7536676475893495,0.8111643261520132

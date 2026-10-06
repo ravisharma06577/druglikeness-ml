@@ -1,0 +1,5 @@
+Original_Data/
+Clean_Data/*.npy
+Results/models/
+*.zip
+.DS_Store

@@ -1,0 +1,13 @@
+features,n_features,model,mean,std,min,max
+rdkit_all+counts,2265,GradBoost,0.825,0.019,0.802,0.851
+morgan_counts,2048,RandomForest,0.821,0.024,0.789,0.843
+rdkit_all+counts,2265,RandomForest,0.817,0.015,0.799,0.833
+morgan_bits,2048,RandomForest,0.814,0.026,0.776,0.842
+rdkit_all,217,GradBoost,0.811,0.019,0.782,0.83
+rdkit_all,217,RandomForest,0.81,0.016,0.79,0.829
+morgan_counts,2048,GradBoost,0.808,0.021,0.785,0.835
+morgan_bits,2048,GradBoost,0.796,0.022,0.771,0.822
+maccs,167,RandomForest,0.791,0.033,0.745,0.827
+maccs,167,GradBoost,0.783,0.03,0.747,0.814
+desc10,10,RandomForest,0.738,0.021,0.717,0.766
+desc10,10,GradBoost,0.723,0.027,0.693,0.754

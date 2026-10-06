@@ -1,0 +1,13 @@
+features,model,mean,std,min,max
+both,RandomForest,0.82,0.011,0.805,0.83
+fingerprints,RandomForest,0.817,0.018,0.788,0.837
+both,SVM,0.809,0.012,0.797,0.826
+both,GradBoost,0.807,0.015,0.787,0.824
+fingerprints,SVM,0.806,0.011,0.795,0.823
+fingerprints,GradBoost,0.803,0.017,0.778,0.822
+both,LogReg,0.747,0.018,0.721,0.771
+fingerprints,LogReg,0.746,0.017,0.721,0.769
+descriptors,RandomForest,0.736,0.015,0.722,0.759
+descriptors,SVM,0.729,0.01,0.723,0.746
+descriptors,GradBoost,0.725,0.017,0.707,0.742
+descriptors,LogReg,0.691,0.006,0.684,0.699

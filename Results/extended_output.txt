@@ -1,0 +1,241 @@
+=============== 06_extract_extended.py  (Mon Oct  5 07:28:43 IST 2026) ===============
+Small molecules with a structure: approved=3311, phase 2-3=8130, no recorded phase=1900891
+
+Pool saved: /Users/ravisharma/Drug_Likeness_ML/Original_Data/pool_raw.csv
+              n  with_year  median_year
+group                                  
+approved   3311       2813       2004.0
+other     20000      14303       2011.0
+phase23    8130       4687       2008.0
+=============== 07_prepare_pool.py  (Mon Oct  5 07:29:13 IST 2026) ===============
+Start: approved=3311, phase23=8130, other=20000
+After parsing/standardising: approved=3311, phase23=8130, other=20000
+After element and size filters: approved=3089, phase23=7844, other=19674
+After removing duplicate structures (priority approved > phase 2-3 > other): approved=2014, phase23=7118, other=19559
+Computing features for 28691 compounds in 58 chunks ...
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 10 concurrent workers.
+[Parallel(n_jobs=-1)]: Done  51 out of  58 | elapsed:   23.9s remaining:    3.3s
+[Parallel(n_jobs=-1)]: Done  58 out of  58 | elapsed:   25.8s finished
+Saved pool: 28691 compounds; RDKit descriptors 217, Morgan bits 2048, counts 2048, MACCS 167
+=============== 08_negative_sensitivity.py  (Mon Oct  5 07:29:50 IST 2026) ===============
+Pool: {'other': 19559, 'phase23': 7118, 'approved': 2014}
+random            seed 1: 2014 approved vs 2014 others; train 3023, test 1005; done (23s elapsed)
+random            seed 2: 2014 approved vs 2014 others; train 3055, test 973; done (46s elapsed)
+random            seed 3: 2014 approved vs 2014 others; train 3295, test 733; done (68s elapsed)
+random            seed 4: 2014 approved vs 2014 others; train 3275, test 753; done (92s elapsed)
+random            seed 5: 2014 approved vs 2014 others; train 3025, test 1003; done (116s elapsed)
+property_matched  seed 1: 2014 approved vs 2014 others; train 2656, test 763; done (136s elapsed)
+property_matched  seed 2: 2014 approved vs 2014 others; train 2720, test 736; done (156s elapsed)
+property_matched  seed 3: 2014 approved vs 2014 others; train 2660, test 768; done (176s elapsed)
+property_matched  seed 4: 2014 approved vs 2014 others; train 2760, test 698; done (196s elapsed)
+property_matched  seed 5: 2014 approved vs 2014 others; train 2676, test 762; done (215s elapsed)
+era_matched       seed 1: 1779 approved vs 1779 others; train 2066, test 863; done (231s elapsed)
+era_matched       seed 2: 1774 approved vs 1774 others; train 2320, test 680; done (248s elapsed)
+era_matched       seed 3: 1777 approved vs 1777 others; train 2344, test 663; done (265s elapsed)
+era_matched       seed 4: 1776 approved vs 1776 others; train 2278, test 701; done (282s elapsed)
+era_matched       seed 5: 1775 approved vs 1775 others; train 2248, test 729; done (298s elapsed)
+phase23           seed 1: 2014 approved vs 2014 others; train 2948, test 1080; done (323s elapsed)
+phase23           seed 2: 2014 approved vs 2014 others; train 3029, test 999; done (347s elapsed)
+phase23           seed 3: 2014 approved vs 2014 others; train 2994, test 1034; done (372s elapsed)
+phase23           seed 4: 2014 approved vs 2014 others; train 3298, test 730; done (396s elapsed)
+phase23           seed 5: 2014 approved vs 2014 others; train 2978, test 1050; done (421s elapsed)
+
+=== TEST ROC-AUC BY NEGATIVE-CLASS DEFINITION (mean and SD over seeds) ===
+      definition    features        model  n_pos  mean_auc  sd_auc  min_auc  max_auc  mean_pr_auc
+     era_matched        both    GradBoost 1776.2     0.747   0.027    0.711    0.784        0.769
+     era_matched        both       LogReg 1776.2     0.681   0.030    0.635    0.715        0.704
+     era_matched        both RandomForest 1776.2     0.765   0.021    0.748    0.800        0.791
+     era_matched        both          SVM 1776.2     0.729   0.031    0.679    0.764        0.760
+     era_matched      desc10    GradBoost 1776.2     0.655   0.033    0.620    0.693        0.680
+     era_matched      desc10       LogReg 1776.2     0.633   0.018    0.619    0.664        0.655
+     era_matched      desc10 RandomForest 1776.2     0.678   0.031    0.632    0.709        0.703
+     era_matched      desc10          SVM 1776.2     0.674   0.029    0.649    0.713        0.683
+     era_matched morgan_bits    GradBoost 1776.2     0.733   0.028    0.702    0.778        0.760
+     era_matched morgan_bits       LogReg 1776.2     0.679   0.030    0.632    0.712        0.701
+     era_matched morgan_bits RandomForest 1776.2     0.760   0.026    0.731    0.799        0.791
+     era_matched morgan_bits          SVM 1776.2     0.725   0.030    0.678    0.760        0.756
+         phase23        both    GradBoost 2014.0     0.570   0.016    0.556    0.592        0.580
+         phase23        both       LogReg 2014.0     0.541   0.012    0.523    0.552        0.540
+         phase23        both RandomForest 2014.0     0.591   0.007    0.580    0.599        0.610
+         phase23        both          SVM 2014.0     0.574   0.009    0.559    0.582        0.593
+         phase23      desc10    GradBoost 2014.0     0.543   0.010    0.529    0.555        0.560
+         phase23      desc10       LogReg 2014.0     0.573   0.018    0.555    0.598        0.572
+         phase23      desc10 RandomForest 2014.0     0.553   0.015    0.535    0.573        0.568
+         phase23      desc10          SVM 2014.0     0.561   0.014    0.537    0.574        0.564
+         phase23 morgan_bits    GradBoost 2014.0     0.565   0.018    0.548    0.595        0.571
+         phase23 morgan_bits       LogReg 2014.0     0.540   0.012    0.522    0.553        0.539
+         phase23 morgan_bits RandomForest 2014.0     0.578   0.013    0.562    0.597        0.601
+         phase23 morgan_bits          SVM 2014.0     0.572   0.009    0.558    0.582        0.590
+property_matched        both    GradBoost 2014.0     0.731   0.018    0.714    0.761        0.727
+property_matched        both       LogReg 2014.0     0.660   0.025    0.631    0.688        0.635
+property_matched        both RandomForest 2014.0     0.765   0.014    0.742    0.778        0.771
+property_matched        both          SVM 2014.0     0.721   0.015    0.703    0.743        0.723
+property_matched      desc10    GradBoost 2014.0     0.612   0.012    0.597    0.629        0.609
+property_matched      desc10       LogReg 2014.0     0.602   0.010    0.586    0.611        0.598
+property_matched      desc10 RandomForest 2014.0     0.645   0.010    0.633    0.660        0.647
+property_matched      desc10          SVM 2014.0     0.624   0.015    0.600    0.635        0.615
+property_matched morgan_bits    GradBoost 2014.0     0.720   0.016    0.705    0.748        0.712
+property_matched morgan_bits       LogReg 2014.0     0.659   0.025    0.629    0.686        0.634
+property_matched morgan_bits RandomForest 2014.0     0.752   0.011    0.740    0.767        0.759
+property_matched morgan_bits          SVM 2014.0     0.720   0.015    0.702    0.741        0.722
+          random        both    GradBoost 2014.0     0.821   0.019    0.803    0.852        0.827
+          random        both       LogReg 2014.0     0.765   0.025    0.728    0.794        0.758
+          random        both RandomForest 2014.0     0.831   0.020    0.805    0.860        0.841
+          random        both          SVM 2014.0     0.817   0.025    0.786    0.845        0.825
+          random      desc10    GradBoost 2014.0     0.732   0.026    0.708    0.765        0.738
+          random      desc10       LogReg 2014.0     0.700   0.037    0.656    0.752        0.700
+          random      desc10 RandomForest 2014.0     0.751   0.025    0.723    0.788        0.762
+          random      desc10          SVM 2014.0     0.747   0.027    0.709    0.780        0.747
+          random morgan_bits    GradBoost 2014.0     0.803   0.018    0.782    0.831        0.810
+          random morgan_bits       LogReg 2014.0     0.762   0.024    0.728    0.789        0.754
+          random morgan_bits RandomForest 2014.0     0.820   0.017    0.804    0.848        0.833
+          random morgan_bits          SVM 2014.0     0.813   0.025    0.784    0.839        0.822
+
+=== RANKING OF MODELS WITHIN EACH DEFINITION AND FEATURE SET (best first) ===
+era_matched       both         RandomForest > GradBoost > SVM > LogReg
+era_matched       desc10       RandomForest > SVM > GradBoost > LogReg
+era_matched       morgan_bits  RandomForest > GradBoost > SVM > LogReg
+phase23           both         RandomForest > SVM > GradBoost > LogReg
+phase23           desc10       LogReg > SVM > RandomForest > GradBoost
+phase23           morgan_bits  RandomForest > SVM > GradBoost > LogReg
+property_matched  both         RandomForest > GradBoost > SVM > LogReg
+property_matched  desc10       RandomForest > SVM > GradBoost > LogReg
+property_matched  morgan_bits  RandomForest > GradBoost > SVM > LogReg
+random            both         RandomForest > GradBoost > SVM > LogReg
+random            desc10       RandomForest > SVM > GradBoost > LogReg
+random            morgan_bits  RandomForest > SVM > GradBoost > LogReg
+
+=== FINGERPRINTS MINUS DESCRIPTORS (random forest, mean AUC difference per definition) ===
+definition
+era_matched         0.082
+phase23             0.025
+property_matched    0.107
+random              0.069
+
+=== 'BOTH' MINUS FINGERPRINTS (random forest) ===
+definition
+era_matched         0.005
+phase23             0.013
+property_matched    0.013
+random              0.011
+
+Saved negative_sensitivity_raw.csv, negative_sensitivity_summary.csv and fig_negative_definitions.png
+=============== 09_baselines_time_era.py  (Mon Oct  5 07:36:53 IST 2026) ===============
+Reference dataset: 4028 compounds (2014 approved); train 3043, test 985
+
+=== (a) BASELINES: ROC-AUC with 95% bootstrap CI (test set) ===
+                                                                     method  metric  value  ci_low  ci_high
+                  Random forest, descriptors + fingerprints (primary model) ROC-AUC  0.831   0.806    0.855
+                                                                  QED score ROC-AUC  0.507   0.471    0.544
+                      Logistic regression on molecular weight and logP only ROC-AUC  0.616   0.579    0.649
+                                     First-report year alone (era shortcut) ROC-AUC  0.675   0.644    0.709
+Nearest-neighbour similarity (to training approved minus to training other) ROC-AUC  0.783   0.754    0.811
+
+=== (a) RULE-BASED FILTERS (test set) ===
+               method  accuracy  precision  recall    f1
+Lipinski rule of five     0.511      0.527   0.743 0.616
+          Veber rules     0.492      0.513   0.823 0.632
+         Ghose filter     0.488      0.512   0.678 0.583
+           QED >= 0.5     0.529      0.547   0.637 0.589
+
+=== (b) TIME-BASED SPLIT: train on compounds first reported up to 2015 (2617), test on later (600; 48.3% approved) ===
+   features        model  n_train  n_test  cutoff_year  test_auc  ci_low  ci_high
+     desc10       LogReg     2617     600         2015     0.554   0.510    0.605
+     desc10          SVM     2617     600         2015     0.610   0.564    0.655
+     desc10 RandomForest     2617     600         2015     0.631   0.586    0.674
+     desc10    GradBoost     2617     600         2015     0.635   0.591    0.678
+morgan_bits       LogReg     2617     600         2015     0.691   0.649    0.732
+morgan_bits          SVM     2617     600         2015     0.709   0.666    0.750
+morgan_bits RandomForest     2617     600         2015     0.742   0.700    0.781
+morgan_bits    GradBoost     2617     600         2015     0.732   0.689    0.770
+       both       LogReg     2617     600         2015     0.683   0.640    0.723
+       both          SVM     2617     600         2015     0.706   0.662    0.748
+       both RandomForest     2617     600         2015     0.719   0.675    0.759
+       both    GradBoost     2617     600         2015     0.722   0.679    0.759
+
+=== (c) ERA CHECK (primary random-forest model, scaffold-split test set) ===
+Spearman correlation between predicted score and first-report year: rho = -0.300 (p = 8.67e-18)
+ROC-AUC, compounds first reported up to 2007 (n = 412): 0.789
+ROC-AUC, compounds first reported after 2007 (n = 374): 0.807
+
+=== (d) EXPECTED PRECISION AT REALISTIC PREVALENCE (primary model; 0.0017 = approx. share of approved drugs among ChEMBL small molecules) ===
+ prevalence  recall  false_positive_rate  precision  enrichment
+     0.5000   0.203                0.006     0.9692        1.94
+     0.5000   0.507                0.082     0.8609        1.72
+     0.5000   0.800                0.293     0.7320        1.46
+     0.0500   0.203                0.006     0.6235       12.47
+     0.0500   0.507                0.082     0.2457        4.91
+     0.0500   0.800                0.293     0.1257        2.51
+     0.0100   0.203                0.006     0.2412       24.12
+     0.0100   0.507                0.082     0.0588        5.88
+     0.0100   0.800                0.293     0.0268        2.68
+     0.0017   0.203                0.006     0.0509       29.92
+     0.0017   0.507                0.082     0.0104        6.13
+     0.0017   0.800                0.293     0.0046        2.72
+Balanced test set: top 1% of scores contain 100.0% approved (enrichment 1.89x)
+Balanced test set: top 5% of scores contain 98.0% approved (enrichment 1.85x)
+Balanced test set: top 10% of scores contain 96.9% approved (enrichment 1.83x)
+
+=== (e) CALIBRATION (random forest, descriptors + fingerprints) ===
+Uncalibrated: Brier 0.173, expected calibration error 0.070
+Sigmoid-calibrated (fitted by grouped cross-validation on training data): Brier 0.169, expected calibration error 0.032
+
+Saved baselines_auc.csv, baselines_rules.csv, time_split_results.csv, deployment_prevalence.csv, calibration_results.csv, fig_baselines.png, fig_calibration.png
+=============== 10_features_cv_pdp.py  (Mon Oct  5 07:37:31 IST 2026) ===============
+Reference dataset: 4028 compounds (2014 approved)
+
+panel desc10 done (4s)
+panel rdkit_all done (12s)
+panel morgan_bits done (38s)
+panel morgan_counts done (63s)
+panel maccs done (68s)
+panel rdkit_all+counts done (99s)
+
+=== (a) TEST ROC-AUC BY FEATURE PANEL (mean, SD, range over scaffold splits; fixed hyperparameters) ===
+        features  n_features        model  mean   std   min   max
+rdkit_all+counts        2265    GradBoost 0.825 0.019 0.802 0.851
+   morgan_counts        2048 RandomForest 0.821 0.024 0.789 0.843
+rdkit_all+counts        2265 RandomForest 0.817 0.015 0.799 0.833
+     morgan_bits        2048 RandomForest 0.814 0.026 0.776 0.842
+       rdkit_all         217    GradBoost 0.811 0.019 0.782 0.830
+       rdkit_all         217 RandomForest 0.810 0.016 0.790 0.829
+   morgan_counts        2048    GradBoost 0.808 0.021 0.785 0.835
+     morgan_bits        2048    GradBoost 0.796 0.022 0.771 0.822
+           maccs         167 RandomForest 0.791 0.033 0.745 0.827
+           maccs         167    GradBoost 0.783 0.030 0.747 0.814
+          desc10          10 RandomForest 0.738 0.021 0.717 0.766
+          desc10          10    GradBoost 0.723 0.027 0.693 0.754
+repeated CV desc10 done (128s)
+repeated CV morgan_bits done (412s)
+repeated CV both done (687s)
+
+=== (b) REPEATED GROUPED CROSS-VALIDATION (5 repeats x 5 folds over the whole reference dataset; folds are not independent) ===
+   features        model  mean    sd   low  high  n_folds
+       both RandomForest 0.822 0.014 0.797 0.845       25
+morgan_bits RandomForest 0.812 0.015 0.784 0.831       25
+       both    GradBoost 0.805 0.013 0.786 0.824       25
+       both          SVM 0.797 0.013 0.779 0.820       25
+morgan_bits          SVM 0.792 0.013 0.773 0.816       25
+morgan_bits    GradBoost 0.789 0.013 0.770 0.812       25
+     desc10 RandomForest 0.743 0.014 0.724 0.771       25
+       both       LogReg 0.736 0.015 0.717 0.768       25
+     desc10          SVM 0.736 0.018 0.711 0.768       25
+morgan_bits       LogReg 0.734 0.015 0.713 0.766       25
+     desc10    GradBoost 0.728 0.013 0.711 0.754       25
+     desc10       LogReg 0.679 0.024 0.638 0.718       25
+
+=== (c) DIRECTION OF DESCRIPTOR EFFECTS (descriptor-only random forest; partial dependence, 10th to 90th percentile) ===
+descriptor    p10    p90  predicted_prob_at_p10  predicted_prob_at_p90  change_p10_to_p90                          direction
+  AroRings   0.00   4.00                  0.562                  0.422             -0.140 higher value -> less approved-like
+      Fsp3   0.10   0.74                  0.418                  0.532              0.113 higher value -> more approved-like
+      LogP   0.64   5.70                  0.571                  0.463             -0.108 higher value -> less approved-like
+       HBD   0.00   4.00                  0.444                  0.541              0.097 higher value -> more approved-like
+        MW 249.30 551.62                  0.525                  0.478             -0.047 higher value -> less approved-like
+HeavyAtoms  17.00  39.00                  0.517                  0.477             -0.039 higher value -> less approved-like
+       HBA   2.00   8.00                  0.501                  0.480             -0.022 higher value -> less approved-like
+     Rings   2.00   5.00                  0.497                  0.492             -0.005 higher value -> less approved-like
+      TPSA  32.34 139.50                  0.491                  0.494              0.003 higher value -> more approved-like
+      RotB   2.00   9.00                  0.504                  0.506              0.002 higher value -> more approved-like
+
+Saved feature_panels_summary.csv, repeated_cv_summary.csv, partial_dependence_summary.csv and fig_partial_dependence.png
+ALL DONE (Mon Oct  5 07:49:09 IST 2026)

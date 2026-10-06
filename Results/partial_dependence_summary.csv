@@ -1,0 +1,11 @@
+descriptor,p10,p90,predicted_prob_at_p10,predicted_prob_at_p90,change_p10_to_p90,direction
+AroRings,0.0,4.0,0.562,0.422,-0.14,higher value -> less approved-like
+Fsp3,0.1,0.74,0.418,0.532,0.113,higher value -> more approved-like
+LogP,0.64,5.7,0.571,0.463,-0.108,higher value -> less approved-like
+HBD,0.0,4.0,0.444,0.541,0.097,higher value -> more approved-like
+MW,249.3,551.62,0.525,0.478,-0.047,higher value -> less approved-like
+HeavyAtoms,17.0,39.0,0.517,0.477,-0.039,higher value -> less approved-like
+HBA,2.0,8.0,0.501,0.48,-0.022,higher value -> less approved-like
+Rings,2.0,5.0,0.497,0.492,-0.005,higher value -> less approved-like
+TPSA,32.34,139.5,0.491,0.494,0.003,higher value -> more approved-like
+RotB,2.0,9.0,0.504,0.506,0.002,higher value -> more approved-like

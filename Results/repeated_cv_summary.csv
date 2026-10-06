@@ -1,0 +1,13 @@
+features,model,mean,sd,low,high,n_folds
+both,RandomForest,0.822,0.014,0.797,0.845,25
+morgan_bits,RandomForest,0.812,0.015,0.784,0.831,25
+both,GradBoost,0.805,0.013,0.786,0.824,25
+both,SVM,0.797,0.013,0.779,0.82,25
+morgan_bits,SVM,0.792,0.013,0.773,0.816,25
+morgan_bits,GradBoost,0.789,0.013,0.77,0.812,25
+desc10,RandomForest,0.743,0.014,0.724,0.771,25
+both,LogReg,0.736,0.015,0.717,0.768,25
+desc10,SVM,0.736,0.018,0.711,0.768,25
+morgan_bits,LogReg,0.734,0.015,0.713,0.766,25
+desc10,GradBoost,0.728,0.013,0.711,0.754,25
+desc10,LogReg,0.679,0.024,0.638,0.718,25

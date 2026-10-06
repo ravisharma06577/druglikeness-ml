@@ -1,0 +1,13 @@
+features,model,test_auc,ci_low,ci_high
+both,RandomForest,0.813,0.782,0.843
+fingerprints,RandomForest,0.809,0.778,0.841
+both,GradBoost,0.792,0.759,0.823
+both,SVM,0.79,0.756,0.822
+fingerprints,GradBoost,0.788,0.755,0.822
+fingerprints,SVM,0.787,0.752,0.82
+both,LogReg,0.749,0.713,0.782
+fingerprints,LogReg,0.749,0.712,0.781
+descriptors,RandomForest,0.732,0.695,0.768
+descriptors,SVM,0.711,0.673,0.75
+descriptors,GradBoost,0.707,0.669,0.746
+descriptors,LogReg,0.669,0.631,0.711

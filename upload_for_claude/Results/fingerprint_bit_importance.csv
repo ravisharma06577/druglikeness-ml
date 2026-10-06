@@ -1,0 +1,11 @@
+bit,importance,frac_approved_with_bit,frac_other_with_bit,example_fragment
+378,0.0098,0.311,0.522,N (single atom environment)
+1750,0.0089,0.683,0.877,ccc (radius 1)
+1160,0.0087,0.068,0.193,cc(c)-c (radius 1)
+875,0.0076,0.355,0.536,ccc (radius 1)
+1855,0.0068,0.148,0.281,cnc (radius 1)
+1152,0.006,0.348,0.509,N (single atom environment)
+1088,0.0053,0.418,0.579,ccc (radius 1)
+656,0.0048,0.193,0.285,O (single atom environment)
+1536,0.0043,0.099,0.188,COc (radius 1)
+1171,0.004,0.223,0.151,N (single atom environment)

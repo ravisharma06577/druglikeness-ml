@@ -1,0 +1,7 @@
+group,n,accuracy,roc_auc
+inside domain (nearest-neighbour Tanimoto >= 0.25),675,0.747,0.818
+outside domain,43,0.628,0.715
+similarity quartile Q1 (least similar),181,0.691,0.717
+similarity quartile Q2,178,0.787,0.756
+similarity quartile Q3,180,0.667,0.764
+similarity quartile Q4 (most similar),179,0.816,0.854
