@@ -1,6 +1,0 @@
-Start: approved=3311, others=8000
-After parsing/standardising (largest fragment, neutralised): approved=3311, others=8000
-After filters (organic atoms H,C,N,O,F,P,S,Cl,Br,I; 10-70 heavy atoms): approved=3089, others=7854
-After removing duplicate structures (ignoring stereo; approved kept if in both classes): approved=2014, others=7834
-Final balanced set: approved=2014, others=2014, total=4028
-Saved clean_compounds.csv (4028 rows, 14 columns) and X_fp.npy (4028, 2048)

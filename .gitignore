@@ -3,3 +3,5 @@ Clean_Data/*.npy
 Results/models/
 *.zip
 .DS_Store
+__pycache__/
+upload_for_claude/
