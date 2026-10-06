@@ -5,7 +5,7 @@ Code, curated data lists, result tables and figures for the manuscript
 > **Machine-Learning Classification of Approved Drugs Versus Other Small Molecules: How Performance Depends on the Negative-Class Definition, Compound Era and Evaluation Design**
 > Ravi Sharma, Department of Pharmaceutical Sciences, Maharshi Dayanand University, Rohtak, Haryana, India
 
-Archived version (DOI): *[Zenodo DOI to be added after upload]*
+
 
 ## What this project does
 
