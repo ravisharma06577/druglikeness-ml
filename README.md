@@ -129,8 +129,9 @@ Random seeds are fixed in every script (42 for the main analyses, 1-5 for repeat
 
 ## How to cite
 
-Sharma R. Machine-learning classification of approved drugs versus other small molecules: how performance depends on the negative-class definition, compound era and evaluation design. *[Journal and year to be added after publication]*. Code and data archive: *[Zenodo DOI]*.
+Sharma R. Machine-learning classification of approved drugs versus other small molecules: how performance depends on the negative-class definition, compound era and evaluation design. *[Journal and year to be added after publication]*. Code and data archive: *Zenodo DOI- https://doi.org/10.5281/zenodo.23177706.
 
 ## Contact
 
 Ravi Sharma, Department of Pharmaceutical Sciences, Maharshi Dayanand University, Rohtak, Haryana, India. Please open an issue in this repository for questions.
+Email:ravisharma06577@gmail.com
